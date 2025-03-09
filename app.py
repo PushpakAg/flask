@@ -1,11 +1,10 @@
 from flask import Flask, request, jsonify
 import instaloader
+import os
 
 app = Flask(__name__)
 
-# Initialize Instaloader
 L = instaloader.Instaloader()
-
 
 @app.route("/get_post_info", methods=["GET"])
 def get_post_info():
@@ -16,7 +15,7 @@ def get_post_info():
 
         post = instaloader.Post.from_shortcode(L.context, shortcode)
 
-        profile = instaloader.Profile.from_username(L.context, post.owner_username)
+        profile = post.owner_profile  # Direct way to get profile info
 
         data = {
             "Username": profile.username,
@@ -33,6 +32,5 @@ def get_post_info():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
