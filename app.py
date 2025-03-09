@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask import send_from_directory
 import instaloader
 from flask_cors import CORS
 import os
@@ -7,6 +8,13 @@ app = Flask(__name__)
 CORS(app)
 # Initialize Instaloader
 L = instaloader.Instaloader()
+
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('static', 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 
 @app.route("/get_post_info", methods=["GET"])
 def get_post_info():
