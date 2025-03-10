@@ -27,15 +27,7 @@ def get_post_info():
         profile = instaloader.Profile.from_username(L.context, post.owner_username)
         
         data = {
-            "Username": post.owner_username,
-            # "Username": profile.username,
-            # "Full Name": profile.full_name,
-            # "Followers": profile.followers,
-            # "Following": profile.followees,
-            # "Post Count": profile.mediacount,
-            # "Engagement Rate": profile.followers / profile.mediacount if profile.mediacount > 0 else 0,
-            # "Is Private": profile.is_private,
-            # "Is Verified": profile.is_verified,
+            "Username": post.owner_username
         }
         
         return jsonify(data)
