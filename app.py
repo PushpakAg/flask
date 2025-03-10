@@ -28,13 +28,13 @@ def get_post_info():
         
         data = {
             "Username": profile.username,
-            "Full Name": profile.full_name,
-            "Followers": profile.followers,
-            "Following": profile.followees,
-            "Post Count": profile.mediacount,
-            "Engagement Rate": profile.followers / profile.mediacount if profile.mediacount > 0 else 0,
-            "Is Private": profile.is_private,
-            "Is Verified": profile.is_verified,
+            # "Full Name": profile.full_name,
+            # "Followers": profile.followers,
+            # "Following": profile.followees,
+            # "Post Count": profile.mediacount,
+            # "Engagement Rate": profile.followers / profile.mediacount if profile.mediacount > 0 else 0,
+            # "Is Private": profile.is_private,
+            # "Is Verified": profile.is_verified,
         }
         
         return jsonify(data)
