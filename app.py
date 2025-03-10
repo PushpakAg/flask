@@ -24,10 +24,11 @@ def get_post_info():
             return jsonify({"error": "Shortcode parameter is required"}), 400
             
         post = instaloader.Post.from_shortcode(L.context, shortcode)
-        profile = instaloader.Profile.from_username(L.context, post.owner_username)
+        # profile = instaloader.Profile.from_username(L.context, post.owner_username)
         
         data = {
-            "Username": profile.username,
+            "Username": post.owner_username,
+            # "Username": profile.username,
             # "Full Name": profile.full_name,
             # "Followers": profile.followers,
             # "Following": profile.followees,
