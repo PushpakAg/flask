@@ -23,9 +23,7 @@ def get_post_info():
         if not shortcode:
             return jsonify({"error": "Shortcode parameter is required"}), 400
             
-        post = instaloader.Post.from_shortcode(L.context, shortcode)
-        profile = instaloader.Profile.from_username(L.context, post.owner_username)
-        
+        post = instaloader.Post.from_shortcode(L.context, shortcode)        
         data = {
             "Username": post.owner_username
         }
