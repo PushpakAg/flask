@@ -28,7 +28,7 @@ def get_post_info():
         
         data = {
             "Username": post.owner_username,
-            "Username": profile.username,
+            # "Username": profile.username,
             # "Full Name": profile.full_name,
             # "Followers": profile.followers,
             # "Following": profile.followees,
